@@ -19,13 +19,14 @@ const TaskBoard = () => {
 
   // Add Task function
 
-  const handleAddTask = () => {
-    console.log("You clicked the button for task");
+  const handleAddTask = (newTask) => {
+    setTasks([...tasks, newTask]);
+    setShowModal(false);
   };
 
   return (
     <section className="mb-20 flex justify-center" id="tasks">
-      {showModal && <AddTaskModal />}
+      {showModal && <AddTaskModal onSave={handleAddTask} />}
       <div className="container">
         <SearchTask />
 
